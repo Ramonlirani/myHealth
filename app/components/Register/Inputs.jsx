@@ -1,9 +1,31 @@
-import { VStack, FormControl, Input, Box, Text, View } from 'native-base'
+import {
+  VStack,
+  FormControl,
+  Input,
+  Box,
+  Text,
+  View,
+  Pressable,
+} from 'native-base'
 import { RadioRegister } from './RadioRegister'
 import { Controller } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
+import { MaterialIcons } from '@expo/vector-icons'
+import DateTimePicker from '@react-native-community/datetimepicker'
+import { useState } from 'react'
+import moment from 'moment'
 
 export const Inputs = ({ control, register, errors }) => {
+  const [date, dateSet] = useState(new Date())
+  const [datePicker, datePickerSet] = useState(false)
+
+  const handleDateChange = (event, selectedDate) => {
+    datePickerSet(false)
+    dateSet(selectedDate)
+  }
+
+  const dateFormat = moment(date).format('DD/MM/YYYY')
+
   return (
     <View mt="5">
       <FormControl.Label>Nome Completo</FormControl.Label>
@@ -33,16 +55,55 @@ export const Inputs = ({ control, register, errors }) => {
       <Box>
         <RadioRegister />
       </Box>
-      <FormControl.Label>Data de nascimento</FormControl.Label>
-      <Input
-        w={{
-          base: '75%',
-          md: '25%',
-        }}
-        backgroundColor={'#24253c'}
-        _focus={{ bg: '#fff', borderColor: '#00D7DF' }}
+      <Text color={'gray.500'} fontWeight="bold" paddingBottom={2}>
+        Data de Nascimento
+      </Text>
+      <Controller
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <Pressable onPress={() => datePickerSet(true)} className={'dob'}>
+            <Box
+              borderWidth={1}
+              height={12}
+              minHeight={14}
+              borderColor={'gray.300'}
+              flexDirection={'row'}
+              width={'100%'}
+              borderRadius={4}
+              alignItems={'center'}
+              justifyContent={'center'}
+            >
+              {datePicker && (
+                <DateTimePicker
+                  mode={'date'}
+                  value={date}
+                  is24Hour={true}
+                  dateFormat="day month year"
+                  onChange={handleDateChange}
+                  maximumDate={new Date()}
+                />
+              )}
+              <Text flex={1} paddingLeft={3} color={'white'}>
+                {dateFormat}
+              </Text>
+              <MaterialIcons
+                name="calendar-today"
+                size={22}
+                color="white"
+                paddingRight={6}
+              />
+            </Box>
+          </Pressable>
+        )}
+        name="dateOfBirth"
+        defaultValue={new Date()}
+        rules={{ required: true }}
       />
-
+      <ErrorMessage
+        errors={errors}
+        name="dateOfBirth"
+        render={({ message }) => <Text>{message}</Text>}
+      />
       <FormControl.Label>E-mail</FormControl.Label>
       <Controller
         control={control}
