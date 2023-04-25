@@ -4,23 +4,23 @@ import { Header } from '../components/Login/Header'
 import { Inputs } from '../components/Login/Inputs'
 import { ButtonLogin } from '../components/Login/ButtonLogin'
 
-export const Login = () => {
+export const Login = ({ navigation }) => {
   return (
     <Center flex={1} w="100%" backgroundColor={'#24253c'}>
       <Header />
       <Inputs />
-      <ButtonLogin />
+      <ButtonLogin navigation={navigation} />
       <HStack mt="6" justifyContent="center">
         <Text fontSize="sm" color="#5F636E" bold>
           Não tem uma conta?{' '}
         </Text>
         <Link
+          onPress={() => navigation.navigate('Register')}
           _text={{
             color: '#5F636E',
             fontWeight: 'medium',
             fontSize: 'sm',
           }}
-          href="#"
         >
           Registre-se
         </Link>

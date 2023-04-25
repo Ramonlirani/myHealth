@@ -4,7 +4,7 @@ import { HeaderHome } from '../components/Home/HeaderHome'
 import { SearchBarHome } from '../components/Home/SearchBarHome'
 import { CardVaccine } from '../components/Home/CardVaccine'
 
-export const Home = () => {
+export const Home = ({ navigation }) => {
   return (
     <>
       <HeaderHome />

@@ -10,7 +10,10 @@ import { Keyboard, TouchableWithoutFeedback } from 'react-native'
 
 const SignupSchema = yup.object().shape({
   name: yup.string().required('Campo Obrigatório'),
-  dob: yup.date().required('Campo Obrigatório'),
+  dateOfBirth: yup
+    .date()
+    .max(new Date(), 'A data de nascimento deve ser anterior à data atual')
+    .required(),
   email: yup.string().required('Email Obrigatório'),
   password: yup.string().required('Senha Obrigatória'),
   passwordConfirmation: yup
@@ -19,7 +22,7 @@ const SignupSchema = yup.object().shape({
     .oneOf([yup.ref('password')], 'As senhas devem ser iguais'),
 })
 
-export const Register = () => {
+export const Register = ({ navigation }) => {
   const {
     control,
     register,
@@ -36,7 +39,10 @@ export const Register = () => {
           <Divider backgroundColor={'#9BC2F7'} />
           <VStack alignItems={'center'}>
             <Inputs control={control} register={register} errors={errors} />
-            <ButtonRegister handleSubmit={handleSubmit} />
+            <ButtonRegister
+              handleSubmit={handleSubmit}
+              navigation={navigation}
+            />
           </VStack>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
