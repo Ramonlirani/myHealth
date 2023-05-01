@@ -6,9 +6,9 @@ import { ButtonLogin } from '../components/Login/ButtonLogin'
 
 export const Login = ({ navigation }) => {
   return (
-    <Center flex={1} w="100%" backgroundColor={'#24253c'}>
+    <Center flex={1} w="100%" backgroundColor={'#fff'}>
       <Header />
-      <Inputs />
+      <Inputs navigation={navigation} />
       <ButtonLogin navigation={navigation} />
       <HStack mt="6" justifyContent="center">
         <Text fontSize="sm" color="#5F636E" bold>

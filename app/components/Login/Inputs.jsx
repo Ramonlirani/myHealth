@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { VStack, FormControl, Icon, Input, Pressable, Link } from 'native-base'
+import { VStack, FormControl, Icon, Input, Pressable, Link, Button } from 'native-base'
 import { MaterialIcons } from '@expo/vector-icons'
 
-export const Inputs = () => {
+
+export const Inputs = ({navigation}) => {
   const [show, setShow] = useState(false)
+
   return (
     <VStack space={3} mt="5">
       <FormControl>
@@ -54,17 +56,20 @@ export const Inputs = () => {
           placeholder="Senha"
         />
       </FormControl>
-      <Link
-        _text={{
-          fontWeight: 'medium',
-          fontSize: 'sm',
-          color: '#5F636E',
-        }}
-        alignSelf="flex-end"
-        mt="1"
+     <Button  
+      _text={{
+        fontWeight: 'medium',
+        fontSize: 'sm',
+        color: '#5F636E',
+        textDecorationLine: 'underline'
+      }}
+      alignSelf="flex-end"
+      backgroundColor={'white'}
+      mt="1"
+      onPress={() => navigation.navigate('ForgotPassword')}
       >
-        Esqueceu a senha?
-      </Link>
+      Esqueceu a senha?
+    </Button>
     </VStack>
   )
 }

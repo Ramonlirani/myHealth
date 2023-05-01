@@ -1,5 +1,4 @@
 import {
-  VStack,
   FormControl,
   Input,
   Box,
@@ -37,11 +36,11 @@ export const Inputs = ({ control, register, errors }) => {
               base: '75%',
               md: '25%',
             }}
-            backgroundColor={'#24253c'}
+            backgroundColor={'#fff'}
             _focus={{ bg: '#fff', borderColor: '#00D7DF' }}
             onChangeText={onChange}
             value={value}
-            color={'white'}
+            color={'black'}
             {...register('name')}
           />
         )}
@@ -83,13 +82,13 @@ export const Inputs = ({ control, register, errors }) => {
                   maximumDate={new Date()}
                 />
               )}
-              <Text flex={1} paddingLeft={3} color={'white'}>
+              <Text flex={1} paddingLeft={3} color={'black'}>
                 {dateFormat}
               </Text>
               <MaterialIcons
                 name="calendar-today"
                 size={22}
-                color="white"
+                color="black"
                 paddingRight={6}
               />
             </Box>
@@ -113,7 +112,7 @@ export const Inputs = ({ control, register, errors }) => {
               base: '75%',
               md: '25%',
             }}
-            backgroundColor={'#24253c'}
+            backgroundColor={'#fff'}
             _focus={{ bg: '#fff', borderColor: '#00D7DF' }}
             onChangeText={onChange}
             value={value}
@@ -137,7 +136,7 @@ export const Inputs = ({ control, register, errors }) => {
               base: '75%',
               md: '25%',
             }}
-            backgroundColor={'#24253c'}
+            backgroundColor={'#fff'}
             _focus={{ bg: '#fff', borderColor: '#00D7DF' }}
             onChangeText={onChange}
             value={value}
@@ -161,7 +160,7 @@ export const Inputs = ({ control, register, errors }) => {
               base: '75%',
               md: '25%',
             }}
-            backgroundColor={'#24253c'}
+            backgroundColor={'#fff'}
             _focus={{ bg: '#fff', borderColor: '#00D7DF' }}
             onChangeText={onChange}
             value={value}

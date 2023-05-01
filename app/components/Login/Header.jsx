@@ -9,7 +9,7 @@ export const Header = () => {
         source={require('../../../assets/images/vacina2.png')}
         alt="Logo de Vacina"
       />
-      <Text bold fontSize={'30'} color={'white'}>
+      <Text bold fontSize={'30'} color={'black'}>
         Bem vindo
       </Text>
     </Box>

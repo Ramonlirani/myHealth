@@ -3,12 +3,12 @@ import { StyleSheet, View } from 'react-native'
 import { NativeBaseProvider } from 'native-base'
 import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-
-
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Login } from './app/screens/Login'
 import { Register } from './app/screens/Register'
 import { Home } from './app/screens/Home'
+import { ForgotPassword } from './app/screens/ForgotPassword'
+import { NewVaccine } from './app/screens/NewVaccine'
 
 const Stack = createNativeStackNavigator()
 
@@ -21,6 +21,8 @@ export default function App() {
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
           <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
           <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
+          <Stack.Screen name="NewVaccine" component={NewVaccine} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
 

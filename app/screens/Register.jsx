@@ -32,7 +32,7 @@ export const Register = ({ navigation }) => {
     resolver: yupResolver(SignupSchema),
   })
   return (
-    <VStack backgroundColor={'#24253c'} width={'100%'} height={'100%'}>
+    <VStack backgroundColor={'#fff'} width={'100%'} height={'100%'}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView behavior={'position'} enabled>
           <HeaderRegister />
