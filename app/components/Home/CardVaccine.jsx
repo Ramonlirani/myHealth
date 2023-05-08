@@ -1,7 +1,8 @@
 import React from 'react'
-import { VStack, Box, Divider, Card, Text, Image, Center, ScrollView, Pressable } from 'native-base'
+import {  Box,  Card, Text, Image,  ScrollView, Pressable } from 'native-base'
 
 export const CardVaccine = ({item}) => {
+  console.log('ITEEM',item);
   const showItem = () => {
     console.log(JSON.stringify(item))
 }
@@ -32,7 +33,7 @@ export const CardVaccine = ({item}) => {
             >
               <Text color={'white'}>Dose: {item.dose}</Text>
             </Box>
-            <Text>Data: {item.dateApp}</Text>
+            <Text>Data: {item.dov}</Text>
             <Image
               marginTop={4}
               width={200}
@@ -43,7 +44,7 @@ export const CardVaccine = ({item}) => {
           </Box>
           <Box alignItems={'flex-end'}>
             <Text color={'danger.500'} italic>
-              Próxima dose em: {item.nextApp}
+              Próxima dose em: {item.donv}
             </Text>
           </Box>
         </Card>

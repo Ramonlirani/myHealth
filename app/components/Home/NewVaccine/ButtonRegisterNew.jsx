@@ -1,9 +1,11 @@
 import React from 'react'
-import { Button, Text } from 'native-base'
+import { Button, VStack, Text, Box } from 'native-base'
 
-export const ButtonNewVaccine = ({ navigation,handleAddVaccine }) => {
+export const ButtonRegisterNew = ({ navigation, handleSubmit }) => {
+ 
+
   return (
-    <>
+    <Box alignItems={'center'} mt={10}>
       <Button
         mt="5"
         mb={'10'}
@@ -11,14 +13,12 @@ export const ButtonNewVaccine = ({ navigation,handleAddVaccine }) => {
         height={'10'}
         borderRadius={0}
         bgColor={'green.400'}
-        onPress={() => {
-          navigation.navigate('NewVaccine', {handleAddVaccine});
-        }}
+        onPress={handleSubmit}
       >
         <Text color={'white'} >
-         Nova vacina
+         Cadastrar
         </Text>
       </Button>
-    </>
+    </Box>
   )
 }

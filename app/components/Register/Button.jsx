@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button, VStack, Text } from 'native-base'
-import moment from 'moment'
 
 export const ButtonRegister = ({ handleSubmit, navigation }) => {
   const onSubmit = (data) => {

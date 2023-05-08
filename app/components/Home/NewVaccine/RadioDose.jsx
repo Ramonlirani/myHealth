@@ -1,23 +1,25 @@
 import React, { useState } from 'react'
 import { Radio, Box, Text, VStack } from 'native-base'
+import { Controller } from "react-hook-form";
 
-export const RadioDose = () => {
-  const [value, valueSet] = useState('1')
+
+export const RadioDose = ({control}) => {
 
   return (
     <Box flexDirection={'row'} alignItems={'center'} paddingVertical={5} mt={4} mr={9} >
       <Text color="white" marginRight={2}>
         Dose
       </Text>
-      <Radio.Group
-        name="myRadioGroup"
-        accessibilityLabel="gender"
-        flexDirection={'row'}
-        value={value}
-        onChange={(nextValue) => {
-          valueSet(nextValue)
-        }}
-      >
+      <Controller
+        control={control}
+        name="dose"
+        render={({ field: { onChange, value } }) => (
+          <Radio.Group
+            accessibilityLabel="dose"
+            flexDirection={'row'}
+            value={value}
+            onChange={onChange}
+          >
         <Radio value="1" marginY={1} marginRight={1}>
           <Text color="white" marginRight={2}>
             1 
@@ -39,6 +41,9 @@ export const RadioDose = () => {
           </Text>
         </Radio>
       </Radio.Group>
+       )}
+       defaultValue={''}
+       />
     </Box>
   )
 }

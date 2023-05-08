@@ -40,6 +40,7 @@ function AuthStack() {
       <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
       <Stack.Screen name="NewVaccine" component={NewVaccine} options={{ headerShown: false }} />
+      <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
