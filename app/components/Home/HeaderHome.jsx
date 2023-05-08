@@ -2,31 +2,36 @@ import React from 'react'
 import {
   HStack,
   Text,
-  Image,
   Box,
   StatusBar,
+  Icon,
+  Pressable,
 } from 'native-base'
+import { MaterialIcons } from '@expo/vector-icons';
 
-export const HeaderHome = () => {
+export const HeaderHome = ({navigation}) => {
   return (
     <>
-      <StatusBar />
-      <Box safeAreaTop bg="#355c7d">
+      <StatusBar barStyle="light-content"/>
+      <Box safeAreaTop bg="backgroundColor.header" >
         <HStack
-          bg="#355c7d"
+          bg="backgroundColor.header"
           px="1"
           py="3"
           justifyContent="space-between"
           alignItems="center"
         >
-          <HStack alignItems="center" paddingLeft={4}>
-            <Image
-              size={'10'}
-              source={require('../../../assets/images/vacina2.png')}
-              alt="Logo de Vacina"
-            />
-            <Text color="white" fontSize="20" fontWeight="bold" left={4}>
-              MyHealth
+          <HStack alignItems="center" flexDirection={'row'}>
+            <Pressable onPress={()=> navigation.openDrawer()}>
+          <Icon
+               as={<MaterialIcons name="menu" />}
+               size={5}
+               color="primary.button.forgot"
+               ml={3}
+               />
+               </Pressable>
+            <Text color="primary.color" fontSize="24" left={4}>
+              Minhas vacinas
             </Text>
           </HStack>
         </HStack>

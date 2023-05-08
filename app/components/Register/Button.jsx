@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, VStack, Text } from 'native-base'
+import moment from 'moment'
 
 export const ButtonRegister = ({ handleSubmit, navigation }) => {
   const onSubmit = (data) => {
@@ -8,22 +9,19 @@ export const ButtonRegister = ({ handleSubmit, navigation }) => {
   }
 
   return (
-    <VStack
-      w={{
-        base: '75%',
-        md: '25%',
-      }}
-    >
+    <>
       <Button
-        mt="5"
-        width={'100%'}
-        bgColor={'#9BC2F7'}
+        borderRadius={0}
+        mt="10"
+        width={'40%'}
+        height={'10'}
+        bgColor={'primary.button.success'}
         onPress={handleSubmit(onSubmit)}
       >
-        <Text color={'white'} bold>
+        <Text color={'white'}>
           Cadastrar
         </Text>
       </Button>
-    </VStack>
+    </>
   )
 }

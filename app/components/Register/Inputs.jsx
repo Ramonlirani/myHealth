@@ -26,49 +26,54 @@ export const Inputs = ({ control, register, errors }) => {
   const dateFormat = moment(date).format('DD/MM/YYYY')
 
   return (
-    <View mt="5">
-      <FormControl.Label>Nome Completo</FormControl.Label>
+    <View mt="5" > 
+      <Box flexDirection={'row'} alignItems={'center'} justifyContent={'flex-end'} >
+        <Box flexDirection={'row'} alignItems={'center'} paddingVertical={5}>
+            <Text color={'white'} marginRight={3}>Nome Completo</Text>
+        </Box>
       <Controller
         control={control}
         render={({ field: { onChange, value } }) => (
           <Input
-            w={{
-              base: '75%',
-              md: '25%',
-            }}
+            w={'62%'}
+            h={'8'}
+            borderRadius={0}
             backgroundColor={'#fff'}
-            _focus={{ bg: '#fff', borderColor: '#00D7DF' }}
+            borderColor={'white'}
             onChangeText={onChange}
             value={value}
-            color={'black'}
+            color={'primary.color'}
             {...register('name')}
-          />
-        )}
-        name="name"
-      />
+            />
+            )}
+            name="name"
+            />
+        </Box>
+        <Box alignItems={'flex-end'} justifyContent={'flex-end'}>
       <ErrorMessage
         errors={errors}
         name="name"
-        render={({ message }) => <Text>{message}</Text>}
-      />
-      <Box>
+        render={({ message }) => <Text marginRight={12} style={{color: 'red'}}>{message}</Text>}
+        />
+        </Box>
+        <Box flexDirection={'row'} alignItems={'center'} justifyContent={'flex-end'}>
         <RadioRegister />
-      </Box>
-      <Text color={'gray.500'} fontWeight="bold" paddingBottom={2}>
-        Data de Nascimento
-      </Text>
+        </Box>
+        <Box flexDirection={'row'} alignItems={'center'}  >
+        <Text color={'white'} marginRight={2} >
+           Data de Nascimento
+        </Text>
       <Controller
         control={control}
         render={({ field: { onChange, value } }) => (
           <Pressable onPress={() => datePickerSet(true)} className={'dob'}>
             <Box
-              borderWidth={1}
-              height={12}
-              minHeight={14}
-              borderColor={'gray.300'}
+              width={'95%'}
+              height={'8'}
+              borderColor={'white'}
+              backgroundColor={'white'}
               flexDirection={'row'}
-              width={'100%'}
-              borderRadius={4}
+              borderRadius={0}
               alignItems={'center'}
               justifyContent={'center'}
             >
@@ -82,13 +87,13 @@ export const Inputs = ({ control, register, errors }) => {
                   maximumDate={new Date()}
                 />
               )}
-              <Text flex={1} paddingLeft={3} color={'black'}>
+              <Text flex={1} paddingLeft={3} color={'primary.color'}>
                 {dateFormat}
               </Text>
               <MaterialIcons
                 name="calendar-today"
                 size={22}
-                color="black"
+                color="#B0CCDE"
                 paddingRight={6}
               />
             </Box>
@@ -98,83 +103,93 @@ export const Inputs = ({ control, register, errors }) => {
         defaultValue={new Date()}
         rules={{ required: true }}
       />
+      </Box>
+        <Box alignItems={'flex-end'} marginRight={10}>
       <ErrorMessage
         errors={errors}
         name="dateOfBirth"
-        render={({ message }) => <Text>{message}</Text>}
-      />
-      <FormControl.Label>E-mail</FormControl.Label>
+        render={({ message }) => <Text marginRight={12} style={{color: 'red'}}>{message}</Text>}
+        />
+        </Box>
+      <Box flexDirection={'row'} alignItems={'center'} justifyContent={'flex-end'} paddingTop={5}>
+      <Text color={'white'} marginRight={3}>E-mail</Text>
       <Controller
         control={control}
         render={({ field: { onChange, value } }) => (
           <Input
-            w={{
-              base: '75%',
-              md: '25%',
-            }}
-            backgroundColor={'#fff'}
-            _focus={{ bg: '#fff', borderColor: '#00D7DF' }}
-            onChangeText={onChange}
-            value={value}
-            color={'white'}
+          w={'62%'}
+          height={'8'}
+          backgroundColor={'#fff'}
+          borderRadius={0}
+          borderColor={'white'}
+          onChangeText={onChange}
+          value={value}
+            color={'primary.color'}
             {...register('email')}
-          />
-        )}
-        name="email"
-      />
+            />
+            )}
+            name="email"
+            />
+        </Box>
+        <Box alignItems={'flex-end'} justifyContent={'flex-end'}>
       <ErrorMessage
         errors={errors}
         name="email"
-        render={({ message }) => <Text>{message}</Text>}
-      />
-      <FormControl.Label>Senha</FormControl.Label>
+        render={({ message }) => <Text marginRight={12} style={{color: 'red'}}>{message}</Text>}
+        />
+        </Box>
+      <Box flexDirection={'row'} alignItems={'center'} justifyContent={'flex-end'} paddingTop={5}>
+      <Text color={'white'} marginRight={3}>Senha</Text>
       <Controller
         control={control}
         render={({ field: { onChange, value } }) => (
           <Input
-            w={{
-              base: '75%',
-              md: '25%',
-            }}
+            width={'62%'}
+            height={'8'}
             backgroundColor={'#fff'}
-            _focus={{ bg: '#fff', borderColor: '#00D7DF' }}
+            borderRadius={0}
+            borderColor={'white'}
             onChangeText={onChange}
             value={value}
-            color={'white'}
+            color={'primary.color'}
             {...register('password')}
           />
         )}
         name="password"
       />
+      </Box>
+      <Box alignItems={'flex-end'} justifyContent={'flex-end'}>
       <ErrorMessage
         errors={errors}
         name="password"
-        render={({ message }) => <Text>{message}</Text>}
-      />
-      <FormControl.Label>Repetir senha</FormControl.Label>
+        render={({ message }) => <Text marginRight={12} style={{color: 'red'}}>{message}</Text>}
+        />
+        </Box>
+      <Box flexDirection={'row'} alignItems={'center'} justifyContent={'flex-end'} paddingTop={5}>
+      <Text color={'white'} marginRight={3}>Repetir senha</Text>
       <Controller
         control={control}
         render={({ field: { onChange, value } }) => (
           <Input
-            w={{
-              base: '75%',
-              md: '25%',
-            }}
+            width={'62%'}
+            height={'8'}
             backgroundColor={'#fff'}
-            _focus={{ bg: '#fff', borderColor: '#00D7DF' }}
             onChangeText={onChange}
             value={value}
-            color={'white'}
+            color={'primary.color'}
             {...register('passwordConfirmation')}
           />
         )}
         name={'passwordConfirmation'}
       />
+      </Box>
+      <Box alignItems={'flex-end'} justifyContent={'flex-end'}>
       <ErrorMessage
         errors={errors}
         name="passwordConfirmation"
-        render={({ message }) => <Text>{message}</Text>}
-      />
+        render={({ message }) => <Text marginRight={5} style={{color: 'red'}}>{message}</Text>}
+        />
+        </Box>
     </View>
   )
 }

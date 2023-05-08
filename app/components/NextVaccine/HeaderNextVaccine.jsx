@@ -11,7 +11,7 @@ import {
 import { MaterialIcons } from '@expo/vector-icons';
 
 
-export const HeaderNewVaccine = ({navigation}) => {
+export const HeaderNextVaccine = ({navigation}) => {
   return (
     <>
       <StatusBar barStyle="light-content"/>
@@ -34,7 +34,7 @@ export const HeaderNewVaccine = ({navigation}) => {
                />
                </Pressable>
             <Text color="primary.color" fontSize="24" left={4}>
-              Nova Vacina
+              Próximas Vacinas
             </Text>
           </HStack>
         </HStack>

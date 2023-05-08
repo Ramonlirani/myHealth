@@ -3,7 +3,7 @@ import { VStack, FormControl, Icon, Input, Pressable, Link, Button } from 'nativ
 import { MaterialIcons } from '@expo/vector-icons'
 
 
-export const Inputs = ({navigation}) => {
+export const Inputs = () => {
   const [show, setShow] = useState(false)
 
   return (
@@ -14,16 +14,7 @@ export const Inputs = ({navigation}) => {
             base: '75%',
             md: '25%',
           }}
-          _focus={{ bg: '#24253c', borderColor: '#00D7DF' }}
-          type={'text'}
-          InputLeftElement={
-            <Icon
-              as={<MaterialIcons name="person" />}
-              size={5}
-              ml="2"
-              color="muted.400"
-            />
-          }
+          type={'text'}         
           placeholder="Email"
           color={'white'}
           bold
@@ -35,7 +26,6 @@ export const Inputs = ({navigation}) => {
             base: '75%',
             md: '25%',
           }}
-          _focus={{ bg: '#24253c', borderColor: '#00D7DF' }}
           color={'white'}
           bold
           type={show ? 'text' : 'password'}
@@ -56,20 +46,6 @@ export const Inputs = ({navigation}) => {
           placeholder="Senha"
         />
       </FormControl>
-     <Button  
-      _text={{
-        fontWeight: 'medium',
-        fontSize: 'sm',
-        color: '#5F636E',
-        textDecorationLine: 'underline'
-      }}
-      alignSelf="flex-end"
-      backgroundColor={'white'}
-      mt="1"
-      onPress={() => navigation.navigate('ForgotPassword')}
-      >
-      Esqueceu a senha?
-    </Button>
     </VStack>
   )
 }

@@ -1,24 +1,22 @@
 import React from 'react'
-import { Button, VStack, Text } from 'native-base'
+import { Button,  Text } from 'native-base'
 
 export const ButtonLogin = ({ navigation }) => {
   return (
-    <VStack
-      w={{
-        base: '75%',
-        md: '25%',
-      }}
-    >
+    <
+>
       <Button
-        mt="2"
-        width={'100%'}
-        bgColor={'#9BC2F7'}
-        onPress={() => navigation.navigate('Home')}
+        borderRadius={0}
+        mt="10"
+        width={'40%'}
+        height={'10'}
+        bgColor={'primary.button.success'}
+        onPress={() => navigation.navigate('DrawerNavigator')}
       >
-        <Text color={'white'} bold>
+        <Text color={'white'} >
           Entrar
         </Text>
       </Button>
-    </VStack>
+    </>
   )
 }

@@ -21,11 +21,9 @@ export const SearchBarHome = () => {
       <VStack
         my="4"
         space={5}
-        w="100%"
-        maxW="300px"
+        w="80%"
         divider={
           <Box px="2">
-            <Divider />
           </Box>
         }
       >
@@ -34,7 +32,7 @@ export const SearchBarHome = () => {
             placeholder="Pesquisar"
             variant="filled"
             width="100%"
-            borderRadius="10"
+            borderRadius="0"
             py="1"
             px="2"
             InputLeftElement={

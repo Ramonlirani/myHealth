@@ -1,21 +1,28 @@
 import React from 'react'
-import { VStack, Box, Divider, Card, Text, Image, Center } from 'native-base'
+import { VStack, Box, Divider, Card, Text, Image, Center, ScrollView, Pressable } from 'native-base'
 
-export const CardVaccine = () => {
+export const CardVaccine = ({item}) => {
+  const showItem = () => {
+    console.log(JSON.stringify(item))
+}
+
   return (
-    <Center>
+    <ScrollView>
+      <Pressable onPress={showItem}>
       <Box
         border="1"
         borderRadius="md"
         width={'100%'}
+        height={'56'}
         alignItems={'center'}
         flexDirection={'row'}
         paddingTop={5}
+        maxHeight={'80%'}
       >
-        <Card backgroundColor={'white'} width={'80%'} height={'56'}>
+        <Card backgroundColor={'white'} >
           <Box alignItems={'center'}>
             <Text color={'#355c7d'} bold>
-              Febre amarela
+              {item.name}
             </Text>
             <Box
               backgroundColor={'#355c7d'}
@@ -23,9 +30,9 @@ export const CardVaccine = () => {
               width={20}
               alignItems={'center'}
             >
-              <Text color={'white'}>1a. dose</Text>
+              <Text color={'white'}>Dose: {item.dose}</Text>
             </Box>
-            <Text>11/06/2022</Text>
+            <Text>Data: {item.dateApp}</Text>
             <Image
               marginTop={4}
               width={200}
@@ -36,11 +43,13 @@ export const CardVaccine = () => {
           </Box>
           <Box alignItems={'flex-end'}>
             <Text color={'danger.500'} italic>
-              Próxima dose em: 11/10/2023
+              Próxima dose em: {item.nextApp}
             </Text>
           </Box>
         </Card>
       </Box>
-    </Center>
+      </Pressable>
+      </ScrollView>
+
   )
 }
