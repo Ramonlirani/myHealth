@@ -5,7 +5,7 @@ export const ButtonRegisterNew = ({ navigation, handleSubmit }) => {
  
 
   return (
-    <Box alignItems={'center'} mt={10}>
+    <Box alignItems={'center'} >
       <Button
         mt="5"
         mb={'10'}

@@ -1,8 +1,9 @@
 import React from 'react'
 import {  Box,  Card, Text, Image,  ScrollView, Pressable } from 'native-base'
+import moment from 'moment';
 
 export const CardVaccine = ({item}) => {
-  console.log('ITEEM',item);
+  console.log('ITEM',item);
   const showItem = () => {
     console.log(JSON.stringify(item))
 }
@@ -33,7 +34,7 @@ export const CardVaccine = ({item}) => {
             >
               <Text color={'white'}>Dose: {item.dose}</Text>
             </Box>
-            <Text>Data: {item.dov}</Text>
+            <Text>Data: {moment(item.dov).format('DD/MM/YYYY')}</Text>
             <Image
               marginTop={4}
               width={200}
@@ -44,7 +45,7 @@ export const CardVaccine = ({item}) => {
           </Box>
           <Box alignItems={'flex-end'}>
             <Text color={'danger.500'} italic>
-              Próxima dose em: {item.donv}
+              Próxima dose em: {moment(item.donv).format('DD/MM/YYYY')}
             </Text>
           </Box>
         </Card>

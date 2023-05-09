@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Text } from 'native-base'
 
-export const ButtonNewVaccine = ({ navigation,handleAddVaccine }) => {
+export const ButtonNewVaccine = ({ navigation }) => {
   return (
     <>
       <Button
@@ -12,7 +12,7 @@ export const ButtonNewVaccine = ({ navigation,handleAddVaccine }) => {
         borderRadius={0}
         bgColor={'green.400'}
         onPress={() => {
-          navigation.navigate('NewVaccine', {handleAddVaccine});
+          navigation.navigate('NewVaccine');
         }}
       >
         <Text color={'white'} >

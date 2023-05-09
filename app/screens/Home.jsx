@@ -7,22 +7,29 @@ import { ButtonNewVaccine } from '../components/Home/Button'
 // import { vaccineList } from '../utils/Vaccine'
 import { v4 as uuidv4 } from 'uuid';
 import { CardVaccine2 } from '../components/Home/CardVaccine2'
+import { DeviceEventEmitter } from 'react-native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { NewVaccine } from './NewVaccine'
+
+const Stack = createNativeStackNavigator()
 
 
 export const Home = ({ navigation }) => {
   const [vaccineList, setVaccineList] = useState([]);
-  const addVaccine = (item) => {
-  const newVaccine = { id: uuidv4(), ...item };
-  const newList = [...vaccineList, newVaccine];
-  console.log('newList',newList);
-  setVaccineList(newList);
-}
+  console.log(vaccineList);
 
-const handleAddVaccine = (data) => {
-  addVaccine(data);
-};
+  DeviceEventEmitter.addListener('event.addVaccine', (item) => {
+    const newVaccine = { id: uuidv4(), ...item };
+    setVaccineList((currentList) => {
+      return  [...currentList, newVaccine];
+    });
+  } )
+
   return (
     <>
+     <Stack.Navigator>
+      <Stack.Screen name="NewVaccine" component={NewVaccine} options={{ headerShown: false }} />
+     </Stack.Navigator>
       <HeaderHome navigation={navigation}/>
       <VStack
         backgroundColor={'backgroundColor.primary'}
@@ -31,8 +38,8 @@ const handleAddVaccine = (data) => {
         alignItems={'center'}
       >
         <SearchBarHome />
-        <FlatList data={vaccineList}  renderItem={({item}) => <CardVaccine item={item} />} keyExtractor={item => item[0].id} />
-       <ButtonNewVaccine navigation={navigation} handleAddVaccine={handleAddVaccine}  />
+        <FlatList data={vaccineList}  renderItem={({item}) => <CardVaccine item={item} />} keyExtractor={item => item.id} />
+       <ButtonNewVaccine navigation={navigation} />
       </VStack>
     </>
   )
