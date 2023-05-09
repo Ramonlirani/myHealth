@@ -7,7 +7,6 @@ export const CardVaccine = ({item}) => {
   const showItem = () => {
     console.log(JSON.stringify(item))
 }
-
   return (
     <ScrollView>
       <Pressable onPress={showItem}>

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button, Text } from 'native-base'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-export const ButtonNewVaccine = ({ navigation }) => {
+export const ButtonNewVaccine = ({ navigation ,vaccineList, vaccineListSet}) => {
   return (
     <>
       <Button

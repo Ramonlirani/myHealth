@@ -11,7 +11,7 @@ export const ButtonLogin = ({ navigation }) => {
         width={'40%'}
         height={'10'}
         bgColor={'primary.button.success'}
-        onPress={() => navigation.navigate('DrawerNavigator')}
+        onPress={() => navigation.push('MyDrawer')}
       >
         <Text color={'white'} >
           Entrar

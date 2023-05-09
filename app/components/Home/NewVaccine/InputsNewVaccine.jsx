@@ -18,16 +18,19 @@ export const InputsNewVaccine = ({navigation, control}) => {
     const dateFormatDov = moment(dateDov).format('DD/MM/YYYY')
     const dateFormatDonv = moment(dateDonv).format('DD/MM/YYYY')
 
+    const handleDateChangeDov = (event, selectedDate) => {
+      const currentDate = selectedDate || dateDov;
+      dateDovSet(currentDate);
+      datePickerDovSet(false);
+
+      console.log('date',dateDov);
+    }
 
     const handleDateChangeDonv = (event, selectedDate) => {
+      const currentDate = selectedDate || dateDonv;
+      dateDonvSet(currentDate)
       datePickerDonvSet(false)
-      dateDonvSet(selectedDate)
-      }
-
-
-    const handleDateChangeDov = (event, selectedDate) => {
-      datePickerDovSet(false)
-      dateDovSet(selectedDate)
+      console.log('dateDONV',dateDonv);
       }
 
     return (
@@ -36,11 +39,12 @@ export const InputsNewVaccine = ({navigation, control}) => {
         <Text color={'white'} marginRight={2} ml={5} >
            Data de Vacinação
         </Text>
+          <Pressable onPress={() => datePickerDovSet(true)} className={'dov'}>
         <Controller
         control={control}
         render={({ field: { onChange, value } }) => (
-          <Pressable onPress={() => datePickerDovSet(true)} className={'dov'}>
             <Box
+              name={"dov"}
               width={'95%'}
               height={'8'}
               borderColor={'white'}
@@ -70,12 +74,12 @@ export const InputsNewVaccine = ({navigation, control}) => {
                 paddingRight={6}
               />
             </Box>
+            )}
+            name="dov"
+            defaultValue={dateDov}
+            rules={{ required: true }}
+          />
           </Pressable>
-        )}
-        name="dov"
-        defaultValue={new Date()}
-        rules={{ required: true }}
-      />
       </Box>
     <Box flexDirection={'row'} alignItems={'center'} justifyContent={'flex-end'} mt={5} mr={7}>
         <Box flexDirection={'row'} alignItems={'center'} paddingVertical={5} >
@@ -112,11 +116,12 @@ export const InputsNewVaccine = ({navigation, control}) => {
         <Text color={'white'} marginRight={2} >
            Próxima Vacinação
         </Text>
+          <Pressable onPress={() => datePickerDonvSet(true)} className={'donv'}>
         <Controller
         control={control}
         render={({ field: { onChange, value } }) => (
-          <Pressable onPress={() => datePickerDonvSet(true)} className={'donv'}>
             <Box
+              name={"donv"}
               width={'95%'}
               height={'8'}
               borderColor={'white'}
@@ -129,7 +134,7 @@ export const InputsNewVaccine = ({navigation, control}) => {
               {datePickerDonv && (
                 <DateTimePicker
                   mode={'date'}
-                  value={dateDov}
+                  value={dateDonv}
                   is24Hour={true}
                   dateFormat="day month year"
                   onChange={handleDateChangeDonv}
@@ -146,12 +151,12 @@ export const InputsNewVaccine = ({navigation, control}) => {
                 paddingRight={6}
               />
             </Box>
-          </Pressable>
         )}
         name="donv"
-        defaultValue={new Date()}
+        defaultValue={dateDonv}
         rules={{ required: true }}
       />
+          </Pressable>
       </Box>
             </View>
     )
