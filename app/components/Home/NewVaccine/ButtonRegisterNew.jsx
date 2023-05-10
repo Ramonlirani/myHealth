@@ -1,11 +1,9 @@
-import React from 'react'
-import { Button, VStack, Text, Box } from 'native-base'
+import React from 'react';
+import { Button, VStack, Text, Box } from 'native-base';
 
 export const ButtonRegisterNew = ({ navigation, handleSubmit }) => {
- 
-
   return (
-    <Box alignItems={'center'} >
+    <Box alignItems={'center'}>
       <Button
         mt="5"
         mb={'10'}
@@ -15,10 +13,8 @@ export const ButtonRegisterNew = ({ navigation, handleSubmit }) => {
         bgColor={'green.400'}
         onPress={handleSubmit}
       >
-        <Text color={'white'} >
-         Cadastrar
-        </Text>
+        <Text color={'white'}>Cadastrar</Text>
       </Button>
     </Box>
-  )
-}
+  );
+};

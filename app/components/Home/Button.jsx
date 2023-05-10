@@ -1,8 +1,8 @@
-import React from 'react'
-import { Button, Text } from 'native-base'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import React from 'react';
+import { Button, Text } from 'native-base';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export const ButtonNewVaccine = ({ navigation ,vaccineList, vaccineListSet}) => {
+export const ButtonNewVaccine = ({ navigation, vaccineList, vaccineListSet }) => {
   return (
     <>
       <Button
@@ -16,10 +16,8 @@ export const ButtonNewVaccine = ({ navigation ,vaccineList, vaccineListSet}) => 
           navigation.navigate('NewVaccine');
         }}
       >
-        <Text color={'white'} >
-         Nova vacina
-        </Text>
+        <Text color={'white'}>Nova vacina</Text>
       </Button>
     </>
-  )
-}
+  );
+};

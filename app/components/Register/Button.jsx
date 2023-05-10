@@ -1,11 +1,11 @@
-import React from 'react'
-import { Button, VStack, Text } from 'native-base'
+import React from 'react';
+import { Button, VStack, Text } from 'native-base';
 
 export const ButtonRegister = ({ handleSubmit, navigation }) => {
   const onSubmit = (data) => {
-    console.log(data)
-    navigation.navigate('Home')
-  }
+    console.log(data);
+    navigation.navigate('MyDrawer');
+  };
 
   return (
     <>
@@ -17,10 +17,8 @@ export const ButtonRegister = ({ handleSubmit, navigation }) => {
         bgColor={'primary.button.success'}
         onPress={handleSubmit(onSubmit)}
       >
-        <Text color={'white'}>
-          Cadastrar
-        </Text>
+        <Text color={'white'}>Cadastrar</Text>
       </Button>
     </>
-  )
-}
+  );
+};

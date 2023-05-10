@@ -1,10 +1,9 @@
-import React from 'react'
-import { Button,  Text } from 'native-base'
+import React from 'react';
+import { Button, Text } from 'native-base';
 
 export const ButtonLogin = ({ navigation }) => {
   return (
-    <
->
+    <>
       <Button
         borderRadius={0}
         mt="10"
@@ -13,10 +12,8 @@ export const ButtonLogin = ({ navigation }) => {
         bgColor={'primary.button.success'}
         onPress={() => navigation.push('MyDrawer')}
       >
-        <Text color={'white'} >
-          Entrar
-        </Text>
+        <Text color={'white'}>Entrar</Text>
       </Button>
     </>
-  )
-}
+  );
+};

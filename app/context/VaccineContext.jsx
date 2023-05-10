@@ -10,9 +10,7 @@ function VaccineProvider({ children }) {
   }
 
   return (
-    <VaccineContext.Provider value={{ vaccines, addVaccine }}>
-      {children}
-    </VaccineContext.Provider>
+    <VaccineContext.Provider value={{ vaccines, addVaccine }}>{children}</VaccineContext.Provider>
   );
 }
 

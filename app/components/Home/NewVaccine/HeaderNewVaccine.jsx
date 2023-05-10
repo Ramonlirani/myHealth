@@ -1,21 +1,12 @@
-import React from 'react'
-import {
-  HStack,
-  Text,
-  Box,
-  StatusBar,
-  Icon,
-  Pressable,
-  
-} from 'native-base'
+import React from 'react';
+import { HStack, Text, Box, StatusBar, Icon, Pressable } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 
-
-export const HeaderNewVaccine = ({navigation}) => {
+export const HeaderNewVaccine = ({ navigation }) => {
   return (
     <>
-      <StatusBar barStyle="light-content"/>
-      <Box safeAreaTop bg="backgroundColor.header" >
+      <StatusBar barStyle="light-content" />
+      <Box safeAreaTop bg="backgroundColor.header">
         <HStack
           bg="backgroundColor.header"
           px="1"
@@ -24,15 +15,14 @@ export const HeaderNewVaccine = ({navigation}) => {
           alignItems="center"
         >
           <HStack alignItems="center" flexDirection={'row'}>
-            <Pressable onPress={()=> navigation.goBack()}>
-
-          <Icon
-               as={<MaterialIcons name="arrow-back-ios" />}
-               size={5}
-               color="primary.button.forgot"
-               ml={3}
-               />
-               </Pressable>
+            <Pressable onPress={() => navigation.goBack()}>
+              <Icon
+                as={<MaterialIcons name="arrow-back-ios" />}
+                size={5}
+                color="primary.button.forgot"
+                ml={3}
+              />
+            </Pressable>
             <Text color="primary.color" fontSize="24" left={4}>
               Nova Vacina
             </Text>
@@ -40,5 +30,5 @@ export const HeaderNewVaccine = ({navigation}) => {
         </HStack>
       </Box>
     </>
-  )
-}
+  );
+};

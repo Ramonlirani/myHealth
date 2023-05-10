@@ -22,12 +22,19 @@ export const ImagePickerButton = () => {
   };
 
   return (
-    <Box flexDirection={'row'} alignItems={'center'} >
-      <Text color="white" ml={12} mr={3}>Comprovante</Text>
-      <Button title="Pick an image from camera roll" onPress={pickImage} width={'40%'} height={'10'}>
+    <Box flexDirection={'row'} alignItems={'center'}>
+      <Text color="white" ml={12} mr={3}>
+        Comprovante
+      </Text>
+      <Button
+        title="Pick an image from camera roll"
+        onPress={pickImage}
+        width={'40%'}
+        height={'10'}
+      >
         Selecione a imagem
       </Button>
       {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
     </Box>
   );
-}
+};
