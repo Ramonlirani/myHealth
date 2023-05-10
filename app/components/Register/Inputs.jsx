@@ -8,16 +8,7 @@ import { useState } from 'react';
 import moment from 'moment';
 
 export const Inputs = ({ control, register, errors }) => {
-  const [date, dateSet] = useState(new Date());
-  const [datePicker, datePickerSet] = useState(false);
-
-  const handleDateChange = (event, selectedDate) => {
-    datePickerSet(false);
-    dateSet(selectedDate);
-  };
-
-  const dateFormat = moment(date).format('DD/MM/YYYY');
-
+  
   return (
     <View mt="5">
       <Box flexDirection={'row'} alignItems={'center'} justifyContent={'flex-end'}>
@@ -65,40 +56,25 @@ export const Inputs = ({ control, register, errors }) => {
         <Controller
           control={control}
           render={({ field: { onChange, value } }) => (
-            <Pressable onPress={() => datePickerSet(true)} className={'dob'}>
-              <Box
-                width={'95%'}
-                height={'8'}
-                borderColor={'white'}
-                backgroundColor={'white'}
-                flexDirection={'row'}
-                borderRadius={0}
-                alignItems={'center'}
-                justifyContent={'center'}
-              >
-                {datePicker && (
-                  <DateTimePicker
-                    mode={'date'}
-                    value={date}
-                    is24Hour={true}
-                    dateFormat="day month year"
-                    onChange={handleDateChange}
-                    maximumDate={new Date()}
-                  />
-                )}
-                <Text flex={1} paddingLeft={3} color={'primary.color'}>
-                  {dateFormat}
-                </Text>
-                <MaterialIcons name="calendar-today" size={22} color="#B0CCDE" paddingRight={6} />
-              </Box>
-            </Pressable>
+            <Input
+              w={'40%'}
+              h={'8'}
+              marginLeft={1}
+              borderRadius={0}
+              backgroundColor={'#fff'}
+              borderColor={'white'}
+              color={'primary.color'}
+              onChangeText={onChange}
+              value={value}
+              {...register('dateOfBirth')}
+              placeholder='DD/MM/AAAA'
+              InputRightElement={<MaterialIcons name='calendar-today' size={17} marginRight={10} color="#B0CCDE"/>}
+            />
           )}
-          name="dateOfBirth"
-          defaultValue={new Date()}
-          rules={{ required: true }}
+          name="dateOfBirth"          
         />
       </Box>
-      <Box alignItems={'flex-end'} marginRight={10}>
+      <Box justifyContent={'flex-end'} alignItems={'flex-end'} marginRight={12}>
         <ErrorMessage
           errors={errors}
           name="dateOfBirth"

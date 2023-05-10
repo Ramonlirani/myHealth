@@ -10,7 +10,7 @@ import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
 const SignupSchema = yup.object().shape({
   name: yup.string().required('Campo Obrigatório'),
-  dateOfBirth: yup.string().max(new Date(), 'Data inválida').required(),
+  dateOfBirth: yup.string().required('Campo Obrigatório'),
   email: yup.string().required('Email Obrigatório'),
   password: yup.string().required('Senha Obrigatória'),
   passwordConfirmation: yup

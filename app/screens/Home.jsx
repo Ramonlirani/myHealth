@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { FlatList, Text, VStack } from 'native-base';
+import { FlatList, HStack, Text, VStack } from 'native-base';
 import { HeaderHome } from '../components/Home/HeaderHome';
 import { SearchBarHome } from '../components/Home/SearchBarHome';
 import { CardVaccine } from '../components/Home/CardVaccine';
 import { ButtonNewVaccine } from '../components/Home/Button';
 import { VaccineContext } from '../context/VaccineContext';
 import { vaccineList } from '../utils/Vaccine';
-import { v4 as uuidv4 } from 'uuid';
 
 export const Home = ({ navigation }) => {
   const { vaccines } = useContext(VaccineContext);
@@ -25,7 +24,9 @@ export const Home = ({ navigation }) => {
           data={vaccines}
           renderItem={({ item }) => <CardVaccine item={item} />}
           keyExtractor={(item) => item.id}
-        />
+          numColumns={2}
+          columnWrapperStyle={{ justifyContent: 'space-between' }}
+          />
         <ButtonNewVaccine navigation={navigation} />
       </VStack>
     </>
