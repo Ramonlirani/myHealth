@@ -7,6 +7,7 @@ import { Register } from '../screens/Register';
 import { ForgotPassword } from '../screens/ForgotPassword';
 import { MyDrawer } from './MyDrawer';
 import { NewVaccine } from '../screens/NewVaccine';
+import { EditVaccine } from '../screens/EditVaccine';
 
 const MyStack = () => {
   return (
@@ -21,6 +22,7 @@ const MyStack = () => {
         />
         <Stack.Screen name="MyDrawer" component={MyDrawer} options={{ headerShown: false }} />
         <Stack.Screen name="NewVaccine" component={NewVaccine} options={{ headerShown: false }} />
+        <Stack.Screen name="EditVaccine" component={EditVaccine} options={{ headerShown: false }} />        
       </Stack.Navigator>
     </>
   );

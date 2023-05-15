@@ -22,7 +22,7 @@ export const Home = ({ navigation }) => {
         <SearchBarHome />
         <FlatList
           data={vaccines}
-          renderItem={({ item }) => <CardVaccine item={item} />}
+          renderItem={({ item }) => <CardVaccine item={item} navigation={navigation}/>}
           keyExtractor={(item) => item.id}
           numColumns={2}
           columnWrapperStyle={{ justifyContent: 'space-between' }}

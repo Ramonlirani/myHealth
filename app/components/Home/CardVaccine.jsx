@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box, Card, Text, Image, ScrollView, Pressable } from 'native-base';
 
-export const CardVaccine = ({ item }) => {
-  console.log('ITEM', item);
-  const showItem = () => {
-    console.log(JSON.stringify(item));
-  };
+export const CardVaccine = ({ item, navigation }) => {
+  
+  const showItem = () => {  
+      navigation.navigate('EditVaccine', navigation);
+      console.log(item)
+  }
 
   return (
     <ScrollView style={{marginRight: 5, marginLeft:5}}>
@@ -13,7 +14,7 @@ export const CardVaccine = ({ item }) => {
         <Box
           border="1"
           borderRadius="md"
-          maxWidth={'158.9'}
+          maxWidth={'130'}
           height={'56'}
           paddingTop={5}
         >
@@ -36,7 +37,7 @@ export const CardVaccine = ({ item }) => {
             </Box>         
               <Box alignItems={'flex-end'}>
               <Text color={'danger.500'} fontSize={11} italic>
-                {item.donv === 'Única' ? 'Dose Única' : `Próxima Dose: ${item.donv}`}
+                {item.dose === 'Única' ? 'Dose Única' : item.donv}
               </Text>
             </Box>
           </Card>

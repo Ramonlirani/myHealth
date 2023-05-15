@@ -12,7 +12,6 @@ export const NewVaccine = ({ navigation }) => {
   const {
     control,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm();
   const { addVaccine } = useContext(VaccineContext);
@@ -30,7 +29,7 @@ export const NewVaccine = ({ navigation }) => {
   return (
     <Box width={'100%'} flex={1} backgroundColor={'backgroundColor.primary'}>
       <HeaderNewVaccine navigation={navigation} />
-      <InputsNewVaccine control={control} errors={errors} setValue={setValue} />
+      <InputsNewVaccine control={control} errors={errors} />
       <ButtonRegisterNew navigation={navigation} handleSubmit={handleSubmit(onSubmit)} />
     </Box>
   );
