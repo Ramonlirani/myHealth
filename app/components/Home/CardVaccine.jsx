@@ -2,10 +2,11 @@ import React from 'react';
 import { Box, Card, Text, Image, ScrollView, Pressable } from 'native-base';
 
 export const CardVaccine = ({ item, navigation }) => {
+  console.log(item)
   
   const showItem = () => {  
-      navigation.navigate('EditVaccine', navigation);
-      console.log(item)
+      console.log('item',item);
+      navigation.navigate('EditVaccine', {item : item});
   }
 
   return (
@@ -26,7 +27,7 @@ export const CardVaccine = ({ item, navigation }) => {
               <Box backgroundColor={'primary.color'} height={'5'} width={20} alignItems={'center'}>
                 <Text color={'white'}>Dose: {item.dose}</Text>
               </Box>
-              <Text>{item.dov}</Text>
+              <Text>{item.date}</Text>
               <Image
                 marginTop={4}
                 width={100}
@@ -37,7 +38,7 @@ export const CardVaccine = ({ item, navigation }) => {
             </Box>         
               <Box alignItems={'flex-end'}>
               <Text color={'danger.500'} fontSize={11} italic>
-                {item.dose === 'Única' ? 'Dose Única' : item.donv}
+                {item.dose === 'Única' ? 'Dose Única' : item.nextDate}
               </Text>
             </Box>
           </Card>

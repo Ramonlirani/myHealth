@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, VStack, Text, Box } from 'native-base';
 
-export const ButtonRegisterNew = ({  onSubmit }) => {
+export const ButtonSaveChange = ({onSaveChanges}) => {
   return (
     <Box alignItems={'center'}>
       <Button
@@ -11,9 +11,9 @@ export const ButtonRegisterNew = ({  onSubmit }) => {
         height={'10'}
         borderRadius={0}
         bgColor={'green.400'}
-        onPress={onSubmit}
+        onPress={onSaveChanges}
       >
-        <Text color={'white'}>Cadastrar</Text>
+        <Text color={'white'}>Salvar alterações</Text>
       </Button>
     </Box>
   );

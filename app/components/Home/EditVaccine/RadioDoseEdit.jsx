@@ -2,21 +2,17 @@ import React, { useState } from 'react';
 import { Radio, Box, Text, VStack } from 'native-base';
 import { Controller } from 'react-hook-form';
 
-export const RadioDoseEdit = ({ control }) => {
+export const RadioDoseEdit = ({ editDose, handleEditDoseChange}) => {
   return (
     <Box flexDirection={'row'} alignItems={'center'} paddingVertical={5} mt={4} mr={9}>
       <Text color="white" marginRight={2}>
         Dose
       </Text>
-      <Controller
-        control={control}
-        name="dose"
-        render={({ field: { onChange, value } }) => (
           <Radio.Group
             accessibilityLabel="dose"
             flexDirection={'row'}
-            value={value}
-            onChange={onChange}
+            value={editDose}
+            onChange={handleEditDoseChange}
           >
             <Radio value="1" marginY={1} marginRight={1}>
               <Text color="white" marginRight={2}>
@@ -39,9 +35,7 @@ export const RadioDoseEdit = ({ control }) => {
               </Text>
             </Radio>
           </Radio.Group>
-        )}
-        defaultValue={''}
-      />
+    
     </Box>
   );
 };

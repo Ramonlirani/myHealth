@@ -3,7 +3,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { RadioDose } from './RadioDose';
 import { Controller } from 'react-hook-form';
 
-export const InputsNewVaccine = ({ control }) => {
+export const InputsNewVaccine = ({nameVaccine, dateVaccine, nextVaccine, dose, handleNameVaccineChange, handleDateVaccineChange, handleNextVaccineChange, handleDoseChange}) => {
 
   return (
     <View mt={5}>
@@ -11,10 +11,6 @@ export const InputsNewVaccine = ({ control }) => {
         <Text color={'white'} marginRight={2} ml={5}>
           Data de Vacinação
         </Text>
-        <Controller
-          control={control}
-          name="dov"
-          render={({ field: { onChange, value } }) => (
             <Input
               w={'40%'}
               h={'8'}
@@ -22,45 +18,34 @@ export const InputsNewVaccine = ({ control }) => {
               backgroundColor={'#fff'}
               borderColor={'white'}
               color={'primary.color'}
-              onChangeText={onChange}
-              value={value}
+              value={dateVaccine}
+              onChangeText={handleDateVaccineChange}
               placeholder='DD/MM/AAAA'
               InputRightElement={<MaterialIcons name='calendar-today' size={17} marginRight={10} color="#B0CCDE"/>}
             />
-          )}
-          defaultValue={''}
-          rules={{ required: true }}
-        />
       </Box>
       <Box flexDirection={'row'} alignItems={'center'} justifyContent={'flex-end'} mt={5} mr={7}>
         <Box flexDirection={'row'} alignItems={'center'} paddingVertical={5}>
           <Text color={'white'} marginRight={3}>
             Vacina
           </Text>
-        </Box>
-        <Controller
-          control={control}
-          render={({ field: { onChange, value } }) => (
+        </Box>  
             <Input
             w={'62%'}
             h={'8'}
             borderRadius={0}
             backgroundColor={'#fff'}
             borderColor={'white'}
+            value={nameVaccine}
+            onChangeText={handleNameVaccineChange}
             color={'primary.color'}
-            onChangeText={onChange}
-            value={value}
+           
             />
-          )}
-          name="name"
-          defaultValue={''}
-        />
+        
       </Box>
-
       <Box flexDirection={'row'} alignItems={'center'} justifyContent={'flex-end'}>
-        <RadioDose control={control} />
+        <RadioDose dose={dose} handleDoseChange={handleDoseChange}/>
       </Box>
-
       {/* <Box>
           <ImagePickerButton/>
         </Box> */}
@@ -69,10 +54,7 @@ export const InputsNewVaccine = ({ control }) => {
         <Text color={'white'} marginRight={2}>
           Próxima Vacinação
         </Text>        
-        <Controller
-          control={control}
-          name="donv"
-          render={({ field: { onChange, value } }) => (
+       
             <Input
             w={'40%'}
             h={'8'}
@@ -80,15 +62,12 @@ export const InputsNewVaccine = ({ control }) => {
             backgroundColor={'#fff'}
             borderColor={'white'}
             color={'primary.color'}
-            onChangeText={onChange}
-            value={value}
+            value={nextVaccine}
+            onChangeText={handleNextVaccineChange}
             InputRightElement={<MaterialIcons name='calendar-today' size={17} marginRight={10} color="#B0CCDE"/>}
             placeholder='DD/MM/AAAA'
             />
-          )}
-          defaultValue={''}
-          rules={{ required: true }}
-          />
+       
       </Box>
     </View>
   );
