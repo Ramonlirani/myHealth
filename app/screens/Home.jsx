@@ -13,7 +13,7 @@ export const Home = ({ navigation }) => {
 
   return vaccineList.length > 0 ? (
     <>
-      <HeaderHome navigation={navigation} />
+      {/* <HeaderHome navigation={navigation} /> */}
       <VStack
         backgroundColor={'backgroundColor.primary'}
         width={'100%'}
