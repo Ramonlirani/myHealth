@@ -38,7 +38,7 @@ export const CardVaccine = ({ item, navigation }) => {
             </Box>         
               <Box alignItems={'flex-end'}>
               <Text color={'danger.500'} fontSize={11} italic>
-                {item.dose === 'Única' ? 'Dose Única' : item.nextDate}
+                {item.dose === 'Única' ? 'Dose Única' : item.next}
               </Text>
             </Box>
           </Card>

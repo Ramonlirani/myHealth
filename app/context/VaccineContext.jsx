@@ -9,8 +9,12 @@ function VaccineProvider({ children }) {
     setVaccines([...vaccines, newVaccine]);
   }
 
+  function deleteVaccine(id) {
+    setVaccines(vaccines.filter((vaccine) => vaccine.id !== id));
+  }
+
   return (
-    <VaccineContext.Provider value={{ vaccines, addVaccine }}>{children}</VaccineContext.Provider>
+    <VaccineContext.Provider value={{ vaccines, addVaccine, deleteVaccine  }}>{children}</VaccineContext.Provider>
   );
 }
 

@@ -14,7 +14,7 @@ export const EditVaccine = ({  navigation, route }) => {
   const [editNextVaccine, editNextVaccineSet] = useState(item.next);
   const [editDose, editDoseSet] = useState(item.dose);
 
-  const { addVaccine } = useContext(VaccineContext);
+  const { addVaccine, deleteVaccine  } = useContext(VaccineContext);
 
   console.log('params',item);
   
@@ -37,14 +37,20 @@ export const EditVaccine = ({  navigation, route }) => {
   const handleSaveChanges = () => {
     
     const updatedItem = {
-      id: item.id, // Mantém o mesmo ID do item
+      id: item.id, 
       name: editNameVaccine,
       date: editDateVaccine,
       next: editNextVaccine,
       dose: editDose,
     };
-
+    addVaccine(updatedItem);
+    navigation.goBack();
     console.log('Alterações salvas:', updatedItem);
+  };
+
+  const handleDelete = () => {
+    deleteVaccine(item.id);
+    navigation.goBack(); 
   };
 
 
@@ -56,7 +62,7 @@ export const EditVaccine = ({  navigation, route }) => {
       editDose={editDose} handleEditDoseChange={handleEditDoseChange}/>
       <Box marginTop={'32'}>
       <ButtonSaveChange onSaveChanges={handleSaveChanges}/>
-      <ButtonDelete/>
+      <ButtonDelete handleDelete={handleDelete}/>
       </Box>
     </Box>
   );
